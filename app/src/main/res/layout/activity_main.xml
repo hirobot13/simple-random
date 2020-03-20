@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:weightSum="10">
+
+    //Label Random
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <TextView
+            android:id="@+id/txvRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="RANDOM"
+            android:textSize="50sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    //Min
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txvMin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Min:"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            />
+
+        <EditText
+            android:id="@+id/etxMin"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            />
+    </LinearLayout>
+
+    //Max
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txvMax"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Max:"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            />
+
+        <EditText
+            android:id="@+id/etxMax"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+    //Generate button
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <Button
+            android:id="@+id/btnGenerate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GENERATE"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+    //Result
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        >
+
+        <TextView
+            android:id="@+id/txvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result: "
+            android:textSize="30sp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:id="@+id/txvValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txvResult"
+            android:text="0"
+            android:textColor="#FFF"
+            android:textSize="35sp"
+            android:background="#8BC34A"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+</LinearLayout>
