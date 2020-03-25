@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tạo số ngẫu nhiên</string>
+    <string name="title">Ngẫu nhiên</string>
+    <string name="min">Số đầu</string>
+    <string name="max">Số cuối</string>
+    <string name="generate">Tạo</string>
+    <string name="result">Kết quả</string>
+</resources>

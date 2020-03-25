@@ -1,11 +1,17 @@
 package com.hiro.simplerandom;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,19 +20,18 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txvResult;
+    TextView txvValue;
     EditText etxMin, etxMax ;
     Button btnGenerate;
 
     ArrayList<Integer> randomlist;
-    boolean isExists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txvResult = (TextView) findViewById(R.id.txvValue);
+        txvValue = (TextView) findViewById(R.id.txvValue);
         etxMin = (EditText) findViewById(R.id.etxMin);
         etxMax = (EditText) findViewById(R.id.etxMax);
         btnGenerate = (Button) findViewById(R.id.btnGenerate);
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         randomlist.add(result);
                     }
-                    txvResult.setText(Integer.toString(result));
+                    txvValue.setText(Integer.toString(result));
 
                 } catch (Exception e){
                     Toast.makeText(MainActivity.this, "Lỗi, xin nhập số đầy đủ và chính xác! " +
@@ -62,6 +67,39 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+//        swtDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    mainLayout.setBackgroundColor(Color.BLACK);
+//                    swtDarkMode.setTextColor(Color.WHITE);
+//                    txvMax.setTextColor(Color.WHITE);
+//                    txvMin.setTextColor(Color.WHITE);
+//                    txvRandom.setTextColor(Color.WHITE);
+//                    txvResult.setTextColor(Color.WHITE);
+//                    txvValue.setTextColor(Color.BLACK);
+//                    txvValue.setBackgroundColor(Color.WHITE);
+//                    btnGenerate.setTextColor(Color.WHITE);
+//                    btnGenerate.setBackgroundColor(Color.WHITE);
+//                    etxMax.setTextColor(Color.WHITE);
+//                    etxMin.setTextColor(Color.WHITE);
+//
+//                } else {
+//                    mainLayout.setBackgroundColor(Color.WHITE);
+//                    swtDarkMode.setTextColor(Color.BLACK);
+//                    txvMax.setTextColor(Color.BLACK);
+//                    txvMin.setTextColor(Color.BLACK);
+//                    txvRandom.setTextColor(Color.BLACK);
+//                    txvResult.setTextColor(Color.BLACK);
+//                    txvValue.setTextColor(Color.WHITE);
+//                    txvValue.setBackgroundColor(Color.BLACK);
+//                    btnGenerate.setTextColor(Color.BLACK);
+//                    etxMax.setTextColor(Color.BLACK);
+//                    etxMin.setTextColor(Color.BLACK);
+//                }
+//            }
+//        });
     }
 
     public boolean IsExist(int num, ArrayList<Integer> randomlist){

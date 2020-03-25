@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SimpleRandom</string>
+    <string name="title">Random</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="generate">Generate</string>
+    <string name="result">Result</string>
 </resources>
