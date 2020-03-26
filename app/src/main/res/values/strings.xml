@@ -5,4 +5,7 @@
     <string name="max">Max</string>
     <string name="generate">Generate</string>
     <string name="result">Result</string>
+    <string name="exit">Exit</string>
+    <string name="showInfo">Show Info</string>
+    <string name="infoApp">Random app - Design by Văn Phát IT</string>
 </resources>

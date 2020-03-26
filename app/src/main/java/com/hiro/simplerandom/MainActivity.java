@@ -1,11 +1,15 @@
 package com.hiro.simplerandom;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Process;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -102,6 +106,25 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.exitMenu:
+                ExitApp();
+                break;
+            case R.id.infoMenu:
+                Toast.makeText(this, R.string.infoApp, Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public boolean IsExist(int num, ArrayList<Integer> randomlist){
         boolean result = false;
         for (int i : randomlist) {
@@ -111,5 +134,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return result;
+    }
+
+    private void ExitApp(){
+        moveTaskToBack(true);
+        Process.killProcess(Process.myPid());
+        System.exit(1);
     }
 }

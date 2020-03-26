@@ -6,4 +6,7 @@
     <string name="max">Số cuối</string>
     <string name="generate">Tạo</string>
     <string name="result">Kết quả</string>
+    <string name="exit">Thoát</string>
+    <string name="showInfo">Thông tin</string>
+    <string name="infoApp">Ứng dụng tạo số ngẫu nhiên - Phát triển bởi Văn Phát IT</string>
 </resources>

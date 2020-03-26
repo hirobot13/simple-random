@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/exitMenu"
+        android:icon="@drawable/close_circle_outline"
+        android:title="@string/exit"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="2"/>
+    <item android:id="@+id/infoMenu"
+        android:icon="@drawable/information_outline"
+        android:title="@string/showInfo"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="1"/>
+</menu>
