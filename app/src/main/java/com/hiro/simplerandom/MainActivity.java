@@ -4,6 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +16,7 @@ import android.os.Process;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -33,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ShowLoginDialog();
+    }
+
+    private void Main(){
         setContentView(R.layout.activity_main);
 
         txvValue = (TextView) findViewById(R.id.txvValue);
@@ -49,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     int min = Integer.parseInt(etxMin.getText().toString());
                     int max = Integer.parseInt(etxMax.getText().toString());
                     int result = random.nextInt(max - min + 1) + min;
-                    if(randomlist.size()>(max - min)){
+                    if (randomlist.size() > (max - min)) {
                         Toast.makeText(MainActivity.this, "Đã hết số để random, ứng dụng sẽ random lại từ đầu!", Toast.LENGTH_LONG).show();
                         randomlist.clear();
                     }
@@ -57,53 +67,71 @@ public class MainActivity extends AppCompatActivity {
                     if (randomlist.size() == 0 || randomlist == null) {
                         randomlist.add(result);
                     } else {
-                        while (IsExist(result, randomlist)){
+                        while (IsExist(result, randomlist)) {
                             result = random.nextInt(max - min + 1) + min;
                         }
                         randomlist.add(result);
                     }
                     txvValue.setText(Integer.toString(result));
 
-                } catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "Lỗi, xin nhập số đầy đủ và chính xác! " +
                             "Nhập số bắt đầu vào min và số cuối của dãy cần random vào max", Toast.LENGTH_LONG).show();
                 }
 
             }
         });
+    }
 
-//        swtDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    mainLayout.setBackgroundColor(Color.BLACK);
-//                    swtDarkMode.setTextColor(Color.WHITE);
-//                    txvMax.setTextColor(Color.WHITE);
-//                    txvMin.setTextColor(Color.WHITE);
-//                    txvRandom.setTextColor(Color.WHITE);
-//                    txvResult.setTextColor(Color.WHITE);
-//                    txvValue.setTextColor(Color.BLACK);
-//                    txvValue.setBackgroundColor(Color.WHITE);
-//                    btnGenerate.setTextColor(Color.WHITE);
-//                    btnGenerate.setBackgroundColor(Color.WHITE);
-//                    etxMax.setTextColor(Color.WHITE);
-//                    etxMin.setTextColor(Color.WHITE);
-//
-//                } else {
-//                    mainLayout.setBackgroundColor(Color.WHITE);
-//                    swtDarkMode.setTextColor(Color.BLACK);
-//                    txvMax.setTextColor(Color.BLACK);
-//                    txvMin.setTextColor(Color.BLACK);
-//                    txvRandom.setTextColor(Color.BLACK);
-//                    txvResult.setTextColor(Color.BLACK);
-//                    txvValue.setTextColor(Color.WHITE);
-//                    txvValue.setBackgroundColor(Color.BLACK);
-//                    btnGenerate.setTextColor(Color.BLACK);
-//                    etxMax.setTextColor(Color.BLACK);
-//                    etxMin.setTextColor(Color.BLACK);
-//                }
-//            }
-//        });
+    private void ShowLoginDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setContentView(R.layout.login);
+        dialog.show();
+
+        final EditText etxUserName = dialog.findViewById(R.id.etxUserName);
+        final EditText etxPassword = dialog.findViewById(R.id.etxPassword);
+        Button btnLogin = dialog.findViewById(R.id.btnLogin);
+        Button btnExit = dialog.findViewById(R.id.btnExit);
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle(R.string.alertTitle);
+                alert.setMessage(R.string.exitAlert);
+                alert.setIcon(R.mipmap.ic_launcher);
+
+                alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ExitApp();
+                    }
+                });
+
+                alert.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show();
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = etxUserName.getText().toString();
+                String password = etxPassword.getText().toString();
+                if (username.equals("admin") && password.equals("1234")){
+                    Main();
+                    dialog.dismiss();
+                }
+            }
+        });
     }
 
     @Override

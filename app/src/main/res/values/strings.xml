@@ -8,4 +8,13 @@
     <string name="exit">Exit</string>
     <string name="showInfo">Show Info</string>
     <string name="infoApp">Random app - Design by Văn Phát IT</string>
+    <string name="login">Login</string>
+    <string name="userName">User name</string>
+    <string name="password">Password</string>
+    <string name="loginButton">Login</string>
+    <string name="loginFail">Your username or password is wrong!</string>
+    <string name="exitAlert">Do you want to exit?</string>
+    <string name="alertTitle">Alert!</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

@@ -9,4 +9,13 @@
     <string name="exit">Thoát</string>
     <string name="showInfo">Thông tin</string>
     <string name="infoApp">Ứng dụng tạo số ngẫu nhiên - Phát triển bởi Văn Phát IT</string>
+    <string name="login">Đăng nhập</string>
+    <string name="userName">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="loginButton">Đăng nhập</string>
+    <string name="loginFail">Tên đăng nhập hoặc mật khẩu của bạn không đúng</string>
+    <string name="exitAlert">Bạn có muốn thoát ứng dụng?</string>
+    <string name="alertTitle">Thông báo!</string>
+    <string name="yes">Thoát</string>
+    <string name="no">Không</string>
 </resources>
