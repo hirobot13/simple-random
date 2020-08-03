@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     if (randomlist.size() == 0 || randomlist == null) {
                         randomlist.add(result);
                     } else {
-                        while (IsExist(result, randomlist)) {
+                        while (IsExist(result, randomlist))  {
                             result = random.nextInt(max - min + 1) + min;
                         }
                         randomlist.add(result);
